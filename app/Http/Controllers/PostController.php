@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -29,7 +29,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        post::create($request->all());
+        return redirect()->route('post.index');
     }
 
     /**
@@ -43,17 +44,20 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request,string $id)
     {
-        //
+        $post = post::find($id);
+        $post->update($request->except(['_method', '_token']));
+        return redirect()->route('post.index');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(string $id)
     {
-        //
+        $post = post::find($id);
+        return view('post.update', compact('post'));
     }
 
     /**
@@ -61,6 +65,8 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = post::find($id);
+        $post->delete();
+        return redirect()->route('post.index');
     }
 }

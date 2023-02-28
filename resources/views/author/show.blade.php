@@ -13,6 +13,24 @@
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('post.index')}}">Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('author.index')}}">Authors</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
     <fieldset>
         <legend>author</legend>
@@ -36,7 +54,7 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>name</th>
+                    <th>title</th>
                     <th>description</th>
                     <th>author_id</th>
                     <th>created_at</th>
@@ -54,7 +72,7 @@
                     <td>{{ $post->description }}</td>
                     <td>{{ $post->author_id }}</td>
                     <td>{{ $post->created_at }}</td>
-                    <td>{{ $post->author->name }}</td>
+                    
                     </tr>
                 @endforeach 
                 
