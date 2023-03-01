@@ -30,19 +30,19 @@
           </div>
         </div>
       </nav>
-    <form action="{{ route('post.edit', $post->id) }}" method="POST">
+    <form action="{{ route('post.update', $post->id) }}" method="post">
         @method('PUT')
         @csrf
         <div>
         <label class="form-label" for="name">Title</label>
-        <input class="form-control" type="text" name="Title" value="{{ $post->Title }}">
+        <input class="form-control" type="text" name="name" value="{{ $post->name }}">
         </div>
         <div>
-        <label class="form-label" for="price">posted_by</label>
-        <input class="form-control" type="text" name="posted_by" value="{{ $post->posted_by }}">
+        <label class="form-label" for="description">description</label>
+        <input class="form-control" type="text" name="description" value="{{ $post->description }}">
         </div>
         <div>
-        <label class="form-label" for="description">created_at</label>
+        <label class="form-label" for="created_at">created_at</label>
         <input class="form-control" type="text" name="created_at" value="{{ $post->created_at }}">
         </div>
         <input class="btn btn-primary" type="submit">

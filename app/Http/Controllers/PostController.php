@@ -44,20 +44,20 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request,string $id)
+    public function edit(string $id)
     {
         $post = post::find($id);
-        $post->update($request->except(['_method', '_token']));
-        return redirect()->route('post.index');
+        return view('post.edit', compact('post')); 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(string $id)
+    public function update(Request $request,string $id)
     {
         $post = post::find($id);
-        return view('post.update', compact('post'));
+        $post->update($request->except(['_method', '_token']));
+        return redirect()->route('post.index');
     }
 
     /**

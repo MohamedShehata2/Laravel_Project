@@ -50,7 +50,7 @@
                     <td>{{ $post->author_id }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>{{ $post->author->name }}</td>
-                    <th>
+                    <th class="d-flex">
                         <button class="btn btn-primary"><a  class="btn" href="{{ route('post.show', $post->id ) }}" >View</a></button>
                         
                         
@@ -62,8 +62,8 @@
 
                        
 
-                        <form action="{{ route('post.update', $post->id) }}">
-                            <button class="btn btn-warning">update</button>
+                        <form action="{{ route('post.edit', $post->id) }}">
+                            <button type='submit' class="btn btn-warning">update</button>
                         </form>
                     </th>
                 </tr>
